@@ -1,6 +1,7 @@
 #include "HungarianAlg.h"
 
-#define DBL_MAX 10000000
+static double DBL_MAX = std::numeric_limits<double>::max();
+//#define DBL_MAX 10000000
 using namespace std;
 
 AssignmentProblemSolver::AssignmentProblemSolver()
