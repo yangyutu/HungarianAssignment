@@ -1,6 +1,7 @@
 #include "HungarianAlg.h"
 
 static double DBL_MAX = std::numeric_limits<double>::max();
+static double epsilon = 1e-8;
 //#define DBL_MAX 10000000
 using namespace std;
 
@@ -139,7 +140,7 @@ void AssignmentProblemSolver::assignmentoptimal(int *assignment, double *cost, d
 		{
 			for(col=0; col<nOfColumns; col++)
 			{
-				if(distMatrix[row + nOfRows*col] == 0)
+				if(abs(distMatrix[row + nOfRows*col]) < epsilon)
 				{
 					if(!coveredColumns[col])
 					{
@@ -180,7 +181,7 @@ void AssignmentProblemSolver::assignmentoptimal(int *assignment, double *cost, d
 		{
 			for(row=0; row<nOfRows; row++)
 			{
-				if(distMatrix[row + nOfRows*col] == 0)
+				if(fabs(distMatrix[row + nOfRows*col]) < epsilon)
 				{
 					if(!coveredRows[row])
 					{
@@ -314,7 +315,7 @@ void AssignmentProblemSolver::step3(int *assignment, double *distMatrix, bool *s
 			{
 				for(row=0; row<nOfRows; row++)
 				{
-					if((!coveredRows[row]) && (distMatrix[row + nOfRows*col] == 0))
+					if((!coveredRows[row]) && (fabs(distMatrix[row + nOfRows*col]) < epsilon))
 					{
 						/* prime zero */
 						primeMatrix[row + nOfRows*col] = true;
