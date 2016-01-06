@@ -8,9 +8,10 @@ void test2();
 void test3();
 int main(void)
 {
-	test1();
-	test2();
-	test3();
+
+	test1();// same number of workes and jobs
+	test2();// jobs are more than workers
+	test3();// workers are more than jobs
 	return 0;
 }
 
@@ -19,7 +20,7 @@ void test1(){
 	int N=20; // tracks
 	int M=20; // detects
 	// Random numbers generator initialization
-	srand (time(NULL));
+	srand (1);
 	// Distance matrix N-th track to M-th detect.
 	vector< vector<double> > Cost(N,vector<double>(M));
 	// Fill matrix with random values
@@ -53,7 +54,7 @@ void test2(){
 	int N=20; // tracks
 	int M=30; // detects
 	// Random numbers generator initialization
-	srand (time(NULL));
+	srand (1);
 	// Distance matrix N-th track to M-th detect.
 	vector< vector<double> > Cost(N,vector<double>(M));
 	// Fill matrix with random values
@@ -85,7 +86,7 @@ void test3(){
 	int N=30; // tracks
 	int M=20; // detects
 	// Random numbers generator initialization
-	srand (time(NULL));
+	srand (1);
 	// Distance matrix N-th track to M-th detect.
 	vector< vector<double> > Cost(N,vector<double>(M));
 	// Fill matrix with random values
